@@ -1,0 +1,377 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap");
+
+body {
+	background: white;
+	margin: 0;
+}
+
+/* navbar main style */
+nav {
+	/* to fix the menu to top, use this code commented below
+    position: fixed;  
+    top: 0;
+    left: 0; */
+	width: 100%;
+	height: 90px;
+	background: orange  ;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 1vh;
+	/* use a "z-index" if you're using something that can cover the menu */
+}
+
+/* you can also have your logo image here */
+nav .brand {
+	color: #333;
+	font-size: x-large;
+	font-weight: 700;
+	font-family: "Pacifico", cursive;
+}
+
+nav ul {
+	all: initial; /* clears all the previous and default style of ul */
+}
+
+.navbar {
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 100%;
+}
+.navbar .menu {
+	z-index: 10;
+	display: flex;
+	height: 100%;
+	line-height: 100px;
+}
+.navbar .menu li {
+
+	position: relative;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	/* here start menu links decoration */
+	padding: 0 15px;
+	font-family: "Nunito", sans-serif;
+}
+.navbar .menu li a {
+
+    color: black; 
+    text-decoration: none;
+	white-space: nowrap;
+	height: 100%;
+	text-transform: uppercase;
+}
+.fondo:hover{
+   background-color: white;
+}
+
+/* arrows decoration */
+.navbar .menu li .arrow,
+.navbar .menu li .more-arrow {
+	
+	width: 25px;
+	color: white;
+	font-size: small;
+	text-align: center;
+	transition: all 0.3s ease;
+}
+/* arrows rotate effect */
+.navbar .menu li:hover .arrow,
+.navbar .menu .sub-menu li:hover .more-arrow {
+	
+	transform: rotate(-180deg);
+}
+
+/* sub-menu */
+.navbar .menu .sub-menu {
+	background-color: orange;
+	position: absolute;
+	top: 100%; /* 100% will put it under the navbar height. decrease the percentage to put it up */
+	right: 0; /* here you use right or left to align the sub-menu box */
+	box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+	border-radius: 0 0 3px 3px;
+	display: none;
+}
+.navbar .menu .sub-menu li {
+	padding: 10px 15px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+/* more options sub-menu*/
+.navbar .menu .sub-menu .more .more-sub-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	border-top: 3px solid rgba(255, 255, 255, 0.3);
+	background-color: orange;
+	box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+	border-radius: 0 0 3px 3px;
+	display: none;
+}
+/* shows submenu and more options submenu on hover */
+.navbar .menu li:hover .sub-menu,
+.navbar .menu .sub-menu .more:hover .more-sub-menu {
+	display: block;
+}
+
+/* hides open and close button */
+.navbar .navOpen,
+.navbar .navClose {
+	display: none;
+}
+
+@media screen and (max-width: 800px) {
+	/* setting the responsive menu style */
+	.navbar .menu {
+		display: flex;
+		flex-direction: column;
+		position: fixed;
+		background-color: orange;
+		height: 50vh;
+		min-width: 150px;
+		top: 0;
+		right: -100%; /* choose right or left to set menu side displayed / keep -100% to hide it */
+		line-height: normal;
+		padding: 20px;
+		transition: all 0.5s ease; /* to make the transition close-to-open soft */
+	}
+	.navbar .menu li {
+		display: block;
+		height: auto;
+		line-height: 45px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	}
+	.navbar .menu .navOpen {
+		margin-right: 10%;
+	}
+	.navbar .navOpen,
+	.navbar .navClose {
+		color: white;
+		font-size: x-large;
+		display: block;
+	}
+	.navbar .navClose {
+		margin-bottom: 50px;
+	}
+	.navbar .menu .sub-menu {
+		width: 100%;
+		right: 100%;
+		top: 0;
+		box-shadow: none;
+		border-radius: 3px 0 0 3px;
+	}
+	.content img{
+		max-width: 100%;
+		min-width: 100%;
+	}
+}
+
+
+.img{
+    width: 25vh;
+    height: 80px;
+}
+
+
+  
+.info{
+    float: left;
+    padding-top: 5vh;
+}
+
+.carousel-container {
+
+    padding-top: 5vh;
+    float: right; /* Align the carousel container to the right */
+    width: 100%; /* Adjust the width of the carousel container */
+	width: 100%; /* Adjust the width of the carousel container */
+
+	}
+
+.carousel {
+    margin-left: 15%;
+	margin-right: 10%;
+
+}
+
+ul.slides {
+    display: block;
+    position: relative;
+    height: 450px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style: none;
+}
+
+.slides * {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+ul.slides input {
+    display: none; 
+}
+
+
+.slide-container { 
+    display: block; 
+}
+
+.slide-image {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0;
+    transition: all .7s ease-in-out;
+}   
+
+.slide-image img {
+    width: auto;
+    min-width: 100%;
+	max-width: 100%;
+    height: 100%;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    font-size: 100px;
+    line-height: 600px;
+    color: #fff;
+}
+
+.carousel-controls label {
+    display: none;
+    position: absolute;
+    padding: 0 20px;
+    opacity: 0;
+    transition: opacity .2s;
+    cursor: pointer;
+}
+
+.slide-image:hover + .carousel-controls label{
+    opacity: 0.5;
+}
+
+.carousel-controls label:hover {
+    opacity: 1;
+}
+
+.carousel-controls .prev-slide {
+    width: 49%;
+    text-align: left;
+    left: 0;
+}
+
+.carousel-controls .next-slide {
+    width: 49%;
+    text-align: right;
+    right: 0;
+}
+
+.carousel-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    z-index: 999;
+    text-align: center;
+}
+
+.carousel-dots .carousel-dot {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.5;
+    margin: 10px;
+}
+
+input:checked + .slide-container .slide-image {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out;
+}
+
+input:checked + .slide-container .carousel-controls label {
+     display: block; 
+}
+
+input#img-1:checked ~ .carousel-dots label#img-dot-1,
+input#img-2:checked ~ .carousel-dots label#img-dot-2,
+input#img-3:checked ~ .carousel-dots label#img-dot-3,
+input#img-4:checked ~ .carousel-dots label#img-dot-4,
+input#img-5:checked ~ .carousel-dots label#img-dot-5,
+input#img-6:checked ~ .carousel-dots label#img-dot-6 {
+	opacity: 1;
+}
+
+.container2 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin-right: 0%
+}
+
+@media (max-width: 800px) {
+	.container2 {
+	  display: grid;
+	  grid-template-columns: 1fr;
+
+	}
+
+	.carousel-container{
+		margin-right: 10%;
+		margin-left: 20%;
+	}
+  }
+input:checked + .slide-container .nav label { display: block; }
+
+
+
+
+  
+  .imagen-secundaria {
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* Puedes ajustar estos valores (top, left) para posicionar la imagen secundaria donde desees */
+	z-index: 1;
+  }
+
+  
+
+  .espacio{
+	margin-top: 1%;
+  }
+
+
+  p{
+	font-family: Barlow-Black;
+  }
+
+  .letra {
+	font-family: Barlow;
+  }
+
+  li{
+	font-family: Barlow;
+  }
+
+  h1{
+	font-family: Barlow;
+  }
